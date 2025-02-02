@@ -7,6 +7,7 @@
         <center>
         <h2 id="problem-title" style="font-family:Helvetica"></h2>
         <div id="board" style="width:436px;height:0;padding-bottom:436px"></div>
+        <div id="timer" style="font-family:Helvetica">0:00</div>
         <br>
         <input type="button" id="hint-btn" value="Hint" />
         <input type="button" id="next-btn" style="display:none" value="Next" />
@@ -18,5 +19,18 @@
         </center>
 
         <script src="dist/chess-puzzle-player.js"></script>
+        <script>
+            const timerElement = document.getElementById("timer");
+            const startTime = Date.now();
+
+            function updateTimer() {
+                const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+                const min = Math.floor(elapsedTime / 60);
+                const sec = elapsedTime % 60;
+                timerElement.textContent = min + ":" + (sec < 10 ? "0" : "") + sec;
+            }
+
+            setInterval(updateTimer, 1000);
+        </script>
     </body>
 </html>

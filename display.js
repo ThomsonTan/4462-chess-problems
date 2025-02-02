@@ -87,21 +87,21 @@ document.body.onkeydown = function(e) {
     return;
   }
 
-  if (e.key === " " || e.code === "Space") {
-    const { source, target } = parse_move(correct_moves[0]);
-    highlight(source);
-    highlight(target);
-  } else {
-    unhighlight();
-  }
+//  if (e.key === " " || e.code === "Space") {
+//    const { source, target } = parse_move(correct_moves[0]);
+//    highlight(source);
+//    highlight(target);
+//  } else {
+//    unhighlight();
+//  }
 
-  if (e.code === "ArrowRight") {
-    next_problem();
-  }
+ // if (e.code === "ArrowRight") {
+ //   next_problem();
+ // }
 
-  if (e.code === "ArrowLeft") {
-    previous_problem();
-  }
+ // if (e.code === "ArrowLeft") {
+ //   previous_problem();
+ // }
 };
 
 function onDropHandler(src, tgt) {
@@ -136,7 +136,7 @@ function onDropHandler(src, tgt) {
     $("#hint-btn").css("display", "none");
     $("#next-btn").css("display", "");
     document.querySelector("#next-btn").onclick = next_problem;
-    document.querySelector("#problem-title").innerHTML = document.querySelector("#problem-title").innerHTML.split("-")[0] + " - Solved!";
+    document.querySelector("#problem-title").innerHTML = document.querySelector("#problem-title").innerHTML.split("-")[0] + " - <span style='color: red;'>Solved!</span>";
   }
 }
 
@@ -163,9 +163,9 @@ function next(problem = random.choice(problems), useAnimation = true) {
   board.position(problem.fen, useAnimation);
   correct_moves = problem.moves.split(";");
   document.querySelector("#hint-btn").onclick = function() {
-    const { source, target } = parse_move(correct_moves[0]);
-    highlight(source);
-    highlight(target);
+    // const { source, target } = parse_move(correct_moves[0]);
+    // highlight(source);
+    // highlight(target);
   };
 }
 
