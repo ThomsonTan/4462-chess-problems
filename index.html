@@ -18,8 +18,8 @@
         </p>
         </center>
 
-        <script src="dist/chess-puzzle-player.js"></script>
         <script>
+            window.initProblem = 1;
             const timerElement = document.getElementById("timer");
             const startTime = Date.now();
 
@@ -32,5 +32,6 @@
 
             setInterval(updateTimer, 1000);
         </script>
+        <script src="dist/chess-puzzle-player.js"></script>
     </body>
 </html>

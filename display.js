@@ -8,6 +8,10 @@ const random = require("./random.js");
 const { enableScroll, disableScroll } = require("./toggle-scrollbar.js");
 let url_parameters = getUrlParameters();
 
+if (!("o" in url_parameters)) {
+  url_parameters["o"] = "1";
+}
+
 const TOTAL_PROBLEMS = 4462;
 const HIGHLIGHT_COLORS = {
   black: "#696969",
@@ -170,7 +174,12 @@ function next(problem = random.choice(problems), useAnimation = true) {
 }
 
 function init() {
-  const problem = ("id" in url_parameters && url_parameters["id"] <= TOTAL_PROBLEMS && url_parameters["id"] > 0) ? problems[url_parameters["id"] - 1] : random.choice(problems);
+  var problem;
+  if (window.initProblem) {
+    problem = problems[window.initProblem - 1];
+  } else {
+    const problem = ("id" in url_parameters && url_parameters["id"] <= TOTAL_PROBLEMS && url_parameters["id"] > 0) ? problems[url_parameters["id"] - 1] : random.choice(problems);
+  }
   next(problem);
   pushState(problem.problemid);
 }
