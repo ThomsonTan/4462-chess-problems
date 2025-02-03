@@ -19,7 +19,11 @@
         </center>
 
         <script>
-            window.initProblem = 31;
+            if (!document.URL.includes('id=')) {
+                window.initProblem = 61;
+            } else {
+                window.initProblem = parseInt(document.URL.split('id=')[1]);
+            }
             const timerElement = document.getElementById("timer");
             const startTime = Date.now();
 

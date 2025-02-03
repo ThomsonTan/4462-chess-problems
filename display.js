@@ -178,7 +178,7 @@ function init() {
   if (window.initProblem) {
     problem = problems[window.initProblem - 1];
   } else {
-    const problem = ("id" in url_parameters && url_parameters["id"] <= TOTAL_PROBLEMS && url_parameters["id"] > 0) ? problems[url_parameters["id"] - 1] : random.choice(problems);
+    problem = ("id" in url_parameters && url_parameters["id"] <= TOTAL_PROBLEMS && url_parameters["id"] > 0) ? problems[url_parameters["id"] - 1] : random.choice(problems);
   }
   next(problem);
   pushState(problem.problemid);
