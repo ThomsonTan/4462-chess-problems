@@ -162,7 +162,7 @@ function next(problem = random.choice(problems), useAnimation = true) {
   if ("o" in url_parameters) { problem_title = `#${problem.problemid} ${problem_title}`;}
   document.querySelector("#problem-title").innerHTML = problem_title;
   document.querySelector("#problem-num").innerHTML = `${problem.problemid}`;
-  document.querySelector("#problem-link").href = "o" in url_parameters ? `?o&id=${problem.problemid}` : `?id=${problem.problemid}`;
+  // document.querySelector("#problem-link").href = "o" in url_parameters ? `?o&id=${problem.problemid}` : `?id=${problem.problemid}`;
   game = new Chess(problem.fen);
   board.position(problem.fen, useAnimation);
   correct_moves = problem.moves.split(";");
