@@ -91,6 +91,12 @@ document.body.onkeydown = function(e) {
     return;
   }
 
+  if (e.key === "a") {
+    let game_fen = game.fen();
+    let link = `https://lichess.org/analysis/${game_fen}`;
+    window.open(link, "_blank");
+  }
+
 //  if (e.key === " " || e.code === "Space") {
 //    const { source, target } = parse_move(correct_moves[0]);
 //    highlight(source);
